@@ -12,6 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //      super.configure(http); // super.~ 삭제를 하면 기존 시큐리티가 가지고 있는 기능이 전부 비활성화된다.
+        http.csrf().disable(); // CSRF 토큰 비활성화
         http.authorizeRequests()
                 .antMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**").authenticated() // 이 주소로 시작되면 인증이 필요하고
                 .anyRequest().permitAll() // 그게 아닌 모든 요청은 허용하겠다 라는 뜻임
