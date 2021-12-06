@@ -3,12 +3,14 @@ package com.cos.photogramstart.domain.user;
 // JPA - Java Persistence API (자바로 데이터를 영구적으로 저장(DB)할 수 있는 API를 제공)
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Builder // SignupDto 클래스에서 데이터를 담을 때 쓰는 어노테이션
 @AllArgsConstructor // 전체 생성자
 @NoArgsConstructor // 빈 생성자
 @Data // Lombok Getter, Setter 등등 생성
