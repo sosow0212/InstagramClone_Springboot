@@ -21,6 +21,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 번호 증가 전략이 데이터베이스를 따라간다.
     private int id;
 
+    @Column(unique = true) // username은 중복이 안된다.
     private String username;
     private String password;
 
