@@ -5,11 +5,13 @@ import lombok.Data;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Data // Getter, Setter
 public class SignupDto {
 
-    @Max(20) // valid 옵션, 20자 넘으면 안됨.
+    @Size(min = 2, max = 10) // valid 옵션, 2~10자
+    @NotBlank
     private String username;
     @NotBlank // valid 옵션, 공백 안됨
     private String password;

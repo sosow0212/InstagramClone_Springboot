@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -51,14 +52,14 @@ public class AuthController {
 
             for(FieldError error: bindingResult.getFieldErrors()) {
                 errorMap.put(error.getField(), error.getDefaultMessage());
-                System.out.println(error.getDefaultMessage());
             }
+            return "오류남";
+        } else {
+            // User 에 signupDto를 넣을 것임.
+            User user = signupDto.toEntity();
+            User userEntity = authService.회원가입(user);
+            System.out.println(userEntity);
         }
-
-        // User 에 signupDto를 넣을 것임.
-        User user = signupDto.toEntity();
-        User userEntity = authService.회원가입(user);
-        System.out.println(userEntity);
 
 
 
