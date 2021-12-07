@@ -17,6 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //      super.configure(http); // super.~ 삭제를 하면 기존 시큐리티가 가지고 있는 기능이 전부 비활성화된다.

@@ -9,3 +9,4 @@
 - Spring Security
 - Spring Web
 - oauth2-client
+- Spring Boot Starter Validation (21.12.07)

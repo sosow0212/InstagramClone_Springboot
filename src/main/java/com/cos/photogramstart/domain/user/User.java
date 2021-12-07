@@ -23,11 +23,15 @@ public class User {
 
     @Column(length = 20, unique = true) // varchar(20), username은 중복이 안된다.
     private String username;
+
+    @Column(nullable = false) // null 불가능
     private String password;
 
+    @Column(nullable = false) // null 불가능
     private String name;
     private String website; // 웹 사이트
     private String bio; // 자기 소개
+    @Column(nullable = false) // null 불가능
     private String email;
     private String phone;
     private String gender;
