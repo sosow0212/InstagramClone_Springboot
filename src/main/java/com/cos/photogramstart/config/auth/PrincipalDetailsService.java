@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 @Service // IoC
 public class PrincipalDetailsService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    // final 꼭 붙여야함
 
 
     // username만 받으면 password는 Spring-security가 알아서 맞춰서 처리해준다.
@@ -21,8 +22,6 @@ public class PrincipalDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User userEntity = userRepository.findByUsername(username);
-
-        System.out.println(username + "/// " + userEntity);
 
         if(userEntity == null) {
             return null;
