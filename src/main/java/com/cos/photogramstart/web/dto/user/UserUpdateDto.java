@@ -18,8 +18,8 @@ public class UserUpdateDto {
     // 코드 수정이 필요함
     public User toEntity() {
         return User.builder()
-                .name(name)
-                .password(password)
+                .name(name) // 이름을 기재 안 했으면 문제!! = validation 체크
+                .password(password) // 패스워드 기재 안하면 문제!! = validation 체크 해야함
                 .website(website)
                 .bio(bio)
                 .phone(phone)
