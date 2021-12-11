@@ -13,4 +13,5 @@
 
 ### 기능
 - Spring Security 이용한 회원 가입 및 로그인
-- Follow, Follower
+- Login, UserUpdate -> Validation 적용
+- Follow, Follower 기능
