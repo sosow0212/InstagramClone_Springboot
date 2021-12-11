@@ -15,6 +15,11 @@ function update(userId, event) {
         console.log("성공", res);
         location.href = `/user/${userId}`;
     }).fail(error => { // http status 상태코드가 200이 아닐 때
-        alert(JSON.stringify(error.responseJSON.data));
+        if(error.data == null) {
+            alert(error.responseJSON.message);
+        } else {
+            alert(JSON.stringify(error.responseJSON.data));
+        }
+
     });
 }
