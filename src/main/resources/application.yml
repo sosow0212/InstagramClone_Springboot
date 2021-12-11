@@ -24,6 +24,7 @@ spring:
       ddl-auto: update # create 로 바꾸면 데이터를 insert해도 서버를 재가동하면 데이터가 다 사라진다.
       #즉 create 로 바꾸고 실행하면 db 값이 모두 삭제된다. 이렇게 초기화 할 수 있다.
       # update 는 db를 계속 업데이트 하는 것이다.
+      # none 은 배포하고 db가 바뀌지 않기 위해 사용한다
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
