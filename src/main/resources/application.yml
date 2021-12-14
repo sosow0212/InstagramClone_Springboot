@@ -40,4 +40,4 @@ spring:
       password: 1234   
 
 file:
-  path: C:/workspace/springbootwork/upload/
+  path: /Users/yoon/Desktop/springbootwork/upload/
