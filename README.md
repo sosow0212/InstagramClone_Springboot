@@ -15,3 +15,4 @@
 - Spring Security 이용한 회원 가입 및 로그인
 - Login, UserUpdate -> Validation 적용
 - Follow, Follower 기능
+- 프로필 이미지 업로드 기능
