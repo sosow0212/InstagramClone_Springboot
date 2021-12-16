@@ -22,7 +22,6 @@ public class UserService {
         User userEntity = userRepository.findById(userId).orElseThrow(() -> {
             throw new CustomException("해당 프로필 페이지는 찾을 수 없습니다.");
         });
-        userEntity.getImages().get(0);
 
         return userEntity;
     }
