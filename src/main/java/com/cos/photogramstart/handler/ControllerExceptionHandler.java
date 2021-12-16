@@ -1,6 +1,7 @@
 package com.cos.photogramstart.handler;
 
 import com.cos.photogramstart.handler.ex.CustomApiException;
+import com.cos.photogramstart.handler.ex.CustomException;
 import com.cos.photogramstart.handler.ex.CustomValidationApiException;
 import com.cos.photogramstart.handler.ex.CustomValidationException;
 import com.cos.photogramstart.util.Script;
@@ -29,6 +30,13 @@ public class ControllerExceptionHandler {
             return Script.back(e.getErrorMap().toString());
         }
     }
+
+
+    @ExceptionHandler(CustomException.class) // 런타임Exception이 발생하는 모든 Exception을 이 함수가 가로챈다
+    public String exception(CustomException e) {
+        return Script.back(e.getMessage());
+    }
+
 
     @ExceptionHandler(CustomValidationApiException.class) // 런타임Exception이 발생하는 모든 Exception을 이 함수가 가로챈다
     public ResponseEntity<?> validationApiException(CustomValidationApiException e) {

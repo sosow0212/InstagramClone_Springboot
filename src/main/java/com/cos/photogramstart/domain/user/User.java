@@ -2,6 +2,7 @@ package com.cos.photogramstart.domain.user;
 
 // JPA - Java Persistence API (자바로 데이터를 영구적으로 저장(DB)할 수 있는 API를 제공)
 
+import com.cos.photogramstart.domain.image.Image;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder // SignupDto 클래스에서 데이터를 담을 때 쓰는 어노테이션
 @AllArgsConstructor // 전체 생성자
@@ -38,6 +40,13 @@ public class User {
 
     private String profileImageUrl; // 사용자 사진
     private String role; // 권한
+
+    // mappedBy = 나는 연관관계의 주인이 아니다. 그러므로 테이블의 컬럼을 만들지 말라는 뜻
+    // User를 SELECT할 때 해당 User id로 등록된 image들을 다 가져오라는 뜻
+    // LAZY = User를 SELECT할 때, 해당 User id로 등록된 image들을 가져오지 말라는 뜻, 대신 getImage() 함수의 image들이 호출할 때 가져옴
+    // EAGER = User를 SELECT할 때, 해당 User id로 등록된 image들을 전부 JOIN 해서 가져오라는 뜻
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Image> images; // 양방향 매핑
 
     private LocalDateTime createDate; // 날짜
 
