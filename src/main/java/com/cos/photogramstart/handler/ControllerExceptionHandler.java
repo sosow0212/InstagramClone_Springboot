@@ -23,7 +23,11 @@ public class ControllerExceptionHandler {
         // 1. 클라이언트에게 응답할 때에는 Script가 좋다.
         // 2. Ajax통신 - CMRespDto
         // 3. Android 통신 - CMRespDto
-        return Script.back(e.getErrorMap().toString());
+        if (e.getErrorMap() == null) {
+            return Script.back(e.getMessage());
+        } else {
+            return Script.back(e.getErrorMap().toString());
+        }
     }
 
     @ExceptionHandler(CustomValidationApiException.class) // 런타임Exception이 발생하는 모든 Exception을 이 함수가 가로챈다
