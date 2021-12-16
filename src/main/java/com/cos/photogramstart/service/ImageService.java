@@ -7,6 +7,7 @@ import com.cos.photogramstart.web.dto.image.ImageUploadDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,6 +23,10 @@ public class ImageService {
     @Value("${file.path}")
     private String uploadFolder;
 
+    // 서비스단에서 DB와 관련된걸 할 때에는 Transactional 어노테이션을 걸어야한다.
+    // 왜냐하면 이 어노테이션을 걸어야 Service를 통해 DB에 관련된 두가지 일을 할 때,
+    // 1번이 실패하고 2번이 성공하면 모두 롤백 시키기 때문이다 ==> 안정성과 충돌 방지(1,2 번 둘다 성공해야, 오류 없는 로직이기 때문이다.)
+    @Transactional(readOnly = true) // 변경감지를 안한다.
     public void 사진업로드(ImageUploadDto imageUploadDto, PrincipalDetails principalDetails) {
         UUID uuid = UUID.randomUUID();
         String imageFileName = uuid + "_" + imageUploadDto.getFile().getOriginalFilename();
@@ -39,7 +44,7 @@ public class ImageService {
 
         // image 테이블에 저장
         Image image = imageUploadDto.toEntity(imageFileName, principalDetails.getUser());
-        Image imageEntity = imageRepository.save(image);
+        imageRepository.save(image);
 
     }
 }
