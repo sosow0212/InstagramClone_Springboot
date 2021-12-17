@@ -1,7 +1,14 @@
 # 스프링부트 인스타그램 클론 코딩
 
-### Dependency
 
+### 프로젝트 설명
+- 인스타그램 스프링 백엔드 클론코딩입니다.
+- 인스타그램의 기능을 대부분 구현하였습니다.
+- JSP를 이용해 VIEW를 구현 하였습니다.
+- JPA 사용에 익숙해지는 것에 초점을 맞춘 프로젝트입니다.
+
+
+### Dependency
 - Spring Boot DevTools
 - Lombok
 - Spring Data JPA
