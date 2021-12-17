@@ -8,6 +8,11 @@
 - JPA 사용에 익숙해지는 것에 초점을 맞춘 프로젝트입니다.
 
 
+### 프로젝트 설정
+- Java11
+- Maven
+
+
 ### Dependency
 - Spring Boot DevTools
 - Lombok
