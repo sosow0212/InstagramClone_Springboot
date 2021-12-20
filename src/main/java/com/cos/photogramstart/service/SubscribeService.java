@@ -5,8 +5,8 @@ import com.cos.photogramstart.domain.user.subscribe.SubscribeRepository;
 import com.cos.photogramstart.handler.ex.CustomApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -25,6 +25,7 @@ public class SubscribeService {
 
     @Transactional
     public void 구독취소하기(int fromUserId, int toUserId) {
+
         subscribeRepository.mUnSubscribe(fromUserId, toUserId);
     }
 }
