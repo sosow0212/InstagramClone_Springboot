@@ -127,7 +127,6 @@
         </div>
 
         <div class="subscribe-list" id="subscribeModalList">
-
             <div class="subscribe__item" id="subscribeModalItem-1">
                 <div class="subscribe__img">
                     <img src="#" onerror="this.src='/images/person.jpeg'"/>
@@ -153,6 +152,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 </div>
