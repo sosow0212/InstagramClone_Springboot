@@ -29,7 +29,7 @@
 						</button>
 					</div>
 
-					<span class="like"><b id="storyLikeCount-1">3 </b>likes</span>
+					<span class="like"><b id="storyLikeCount-1">999 </b>likes</span>
 
 					<div class="sl__item__contents__content">
 						<p>등산하는 것이 너무 재밌네요</p>
