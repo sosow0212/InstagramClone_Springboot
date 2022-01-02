@@ -11,7 +11,7 @@ public interface SubscribeRepository extends JpaRepository<Subscribe, Integer> {
     void mSubScribe(int fromUserId, int toUserId); // 성공 1 리턴, 실패 -1 리턴, 10번 성공이면 10
 
     @Modifying
-    @Query(value = "DELETE FROM subscribe WHERE fromUserId =:fromUserId = :fromUserId AND toUserId =:toUserId", nativeQuery = true)
+    @Query(value = "DELETE FROM subscribe WHERE fromUserId =:fromUserId AND toUserId =:toUserId", nativeQuery = true)
     void mUnSubscribe(int fromUserId, int toUserId); // 성공 1 리턴, 실패 -1 리턴
 
     @Query(value = "SELECT COUNT(*) FROM subscribe WHERE fromUserId = :principalId AND toUserID = :pageUserId", nativeQuery = true)
