@@ -24,7 +24,7 @@ public class Image {
 
     @JsonIgnoreProperties({"images"})
     @JoinColumn(name="userId") // foriegn 키 이름 지정
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER) // 이미지를 Select하면 조인해서 user 정보를 같이 들고옴
     private User user; // User : Image = 1 : N , ==> ManyToOne
 
     // 이미지 좋아요
