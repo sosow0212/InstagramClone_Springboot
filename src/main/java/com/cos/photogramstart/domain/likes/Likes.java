@@ -1,5 +1,6 @@
-package com.cos.photogramstart.domain.user.subscribe;
+package com.cos.photogramstart.domain.likes;
 
+import com.cos.photogramstart.domain.image.Image;
 import com.cos.photogramstart.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -18,23 +18,25 @@ import java.time.LocalDateTime;
 @Table(
         uniqueConstraints = {
                 @UniqueConstraint(
-                        name = "subscribe_uk" ,
-                        columnNames = {"fromUserId", "toUserId"}
+                        name = "likes_uk" ,
+                        columnNames = {"imageId", "userId"}
                 )
         }
 )
-public class Subscribe {
+
+public class Likes { // N
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @JoinColumn(name="fromUserId")
-    @ManyToOne // 유저가 many
-    private User fromUser; // 구독 하는 사람
-
-    @JoinColumn(name = "toUserId")
+    @JoinColumn(name="imageId")
     @ManyToOne
-    private User toUser; // 구독 받는 유저
+    private Image image; // 1
+
+    // 오류가 터지고 확인하기
+    @JoinColumn(name="userId")
+    @ManyToOne
+    private User user; // 1
 
     private LocalDateTime createDate;
 
