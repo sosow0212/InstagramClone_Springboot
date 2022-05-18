@@ -28,4 +28,4 @@
 - Login, UserUpdate -> Validation 적용
 - Follow, Follower 기능
 - Ajax로 Validation 출력
-- 프로필 이미지 업로드 기능 -> 렌더링
+- 프로필 이미지 업로드 기능
